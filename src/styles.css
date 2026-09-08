@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Liberation Serif", "Noto Serif SC", ui-serif, Georgia, serif;
+  --color-cream: #f3f0ea;
+  --color-ink: #1b1916;
+  --color-pine: #1f4a3e;
+  --color-paper: #f7f5f0;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  html,
+  body {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    min-height: 100%;
+  }
+}
+
+@layer components {
+  .field {
+    @apply w-full rounded-xl border border-ink/10 bg-white px-3 py-2 text-sm text-ink outline-none focus:border-pine;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-pine px-4 py-2.5 text-sm font-medium text-cream hover:bg-pine/90 disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/10 bg-white/60 px-4 py-2.5 text-sm text-ink hover:bg-white;
+  }
+}
